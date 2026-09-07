@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #021D3E; }
+  * { box-sizing: border-box; }
+  a { color: #F2EFE9; text-decoration: none; }
+  a:hover { color: #E9B421; }
+  @keyframes kb { from { transform: scale(1.02) translate3d(0,0,0); } to { transform: scale(1.14) translate3d(0,-1.2%,0); } }
+  @media (prefers-reduced-motion: reduce) { img[data-kb] { animation: none !important; } }
+</style>
+</helmet>
+<div style="position: relative; width: 100%; min-height: 100vh; overflow: hidden; background: #021D3E; font-family: Archivo, system-ui, sans-serif; color: #F5F2EC;">
+
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <img data-kb="1" src="assets/mone-01-acceso.jpg" alt="Acceso principal Moné Gardens" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: kb 26s ease-in-out infinite alternate; transition: opacity 1200ms cubic-bezier(0.4,0,0.2,1); opacity: {{ o0 }};" />
+    <img data-kb="1" src="assets/mone-02-fachada.jpg" alt="Fachada de las casas" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: kb 26s ease-in-out infinite alternate; transition: opacity 1200ms cubic-bezier(0.4,0,0.2,1); opacity: {{ o1 }};" />
+    <img data-kb="1" src="assets/mone-03-calle.jpg" alt="Andadores interiores del conjunto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: kb 26s ease-in-out infinite alternate; transition: opacity 1200ms cubic-bezier(0.4,0,0.2,1); opacity: {{ o2 }};" />
+    <img data-kb="1" src="assets/mone-04-amenities.jpg" alt="Amenities: piscina y gimnasio" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: kb 26s ease-in-out infinite alternate; transition: opacity 1200ms cubic-bezier(0.4,0,0.2,1); opacity: {{ o3 }};" />
+    <img data-kb="1" src="assets/mone-05-andador.jpg" alt="Recorrido peatonal frente a las casas" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: kb 26s ease-in-out infinite alternate; transition: opacity 1200ms cubic-bezier(0.4,0,0.2,1); opacity: {{ o4 }};" />
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2,29,62,0.58) 0%, rgba(2,29,62,0.26) 38%, rgba(2,29,62,0.44) 78%, rgba(2,29,62,0.7) 100%);"></div>
+    <div style="position: absolute; inset: 0; background: radial-gradient(120% 90% at 18% 42%, rgba(2,29,62,0.34) 0%, rgba(2,29,62,0) 62%); opacity: {{ overlayBoost }};"></div>
+  </div>
+
+  <header style="position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: clamp(18px, 3vw, 34px) clamp(18px, 4vw, 56px);">
+    <div style="display: flex; align-items: center; gap: clamp(16px, 2.6vw, 34px); padding: clamp(12px, 1.4vw, 18px) clamp(18px, 2.4vw, 30px); border-radius: 999px; background: linear-gradient(140deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05)); backdrop-filter: blur(26px) saturate(170%); -webkit-backdrop-filter: blur(26px) saturate(170%); border: 1px solid rgba(255,255,255,0.22); box-shadow: 0 18px 50px rgba(2,20,45,0.38), inset 0 1px 0 rgba(255,255,255,0.38);">
+      <img src="assets/logo-mone.png" alt="Moné Gardens" style="display: block; height: clamp(26px, 3vw, 40px); width: auto;" />
+      <span style="width: 1px; height: clamp(24px, 2.6vw, 34px); background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));"></span>
+      <img src="assets/logo-miacasa.png" alt="MIACASA" style="display: block; height: clamp(22px, 2.5vw, 34px); width: auto;" />
+    </div>
+
+    <button type="button" onClick="{{ toggleNav }}" aria-label="Abrir menú" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; width: clamp(52px, 5vw, 62px); height: clamp(52px, 5vw, 62px); flex: none; border-radius: 999px; cursor: pointer; background: linear-gradient(140deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06)); backdrop-filter: blur(26px) saturate(170%); -webkit-backdrop-filter: blur(26px) saturate(170%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 18px 44px rgba(2,20,45,0.4), inset 0 1px 0 rgba(255,255,255,0.4); transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background 200ms ease;" style-hover="background: linear-gradient(140deg, rgba(255,255,255,0.26), rgba(255,255,255,0.1))" style-active="transform: scale(0.95)">
+      <span style="display: block; width: 22px; height: 2px; border-radius: 2px; background: #F5F2EC;"></span>
+      <span style="display: block; width: 22px; height: 2px; border-radius: 2px; background: #F5F2EC;"></span>
+      <span style="display: block; width: 14px; height: 2px; border-radius: 2px; background: rgba(245,242,236,0.7);"></span>
+    </button>
+  </header>
+
+  <main style="position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; min-height: calc(100vh - 200px); padding: clamp(24px, 5vh, 60px) clamp(18px, 4vw, 56px) 0;">
+    <div style="max-width: 880px; padding: clamp(26px, 3.4vw, 46px) clamp(24px, 3.6vw, 52px); border-radius: clamp(24px, 2.4vw, 34px); background: linear-gradient(150deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04)); backdrop-filter: blur(30px) saturate(160%); -webkit-backdrop-filter: blur(30px) saturate(160%); border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 40px 90px rgba(2,20,45,0.5), inset 0 1px 0 rgba(255,255,255,0.34);">
+      <p style="margin: 0 0 clamp(14px, 1.6vw, 22px); font-size: clamp(11px, 1vw, 13px); font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: #E9B421;">Casas · En alianza con MIACASA</p>
+      <h1 style="margin: 0; font-size: clamp(44px, 8.6vw, 132px); line-height: 0.9; letter-spacing: -0.03em; font-weight: 800; text-transform: uppercase; text-wrap: balance; color: #FFFDF8; text-shadow: 0 8px 40px rgba(2,20,45,0.5);">Moné<br />Gardens</h1>
+      <p style="margin: clamp(18px, 2vw, 28px) 0 0; max-width: 46ch; font-size: clamp(15px, 1.35vw, 19px); line-height: 1.55; color: rgba(255,253,248,0.9); text-wrap: pretty;">Diseño superior, accesible y exclusivo. Un conjunto de casas pensado para vivirse todos los días.</p>
+      <p style="margin: clamp(26px, 3vw, 38px) 0 clamp(16px, 1.6vw, 20px); font-size: clamp(18px, 2.1vw, 28px); font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: #FFFDF8;">¿Listo para conocerlo?</p>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(12px, 1.6vw, 20px);">
+        <a href="Mone Gardens Vista General.dc.html" style="display: inline-flex; align-items: center; gap: 14px; padding: clamp(17px, 1.9vw, 24px) clamp(24px, 3vw, 40px); border-radius: 999px; background: linear-gradient(180deg, #F0C02A 0%, #DFA608 100%); color: #04203F; font-size: clamp(13px, 1.15vw, 16px); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; min-height: 56px; border: 1px solid rgba(255,255,255,0.28); box-shadow: 0 22px 50px rgba(223,166,8,0.34), inset 0 1px 0 rgba(255,255,255,0.55); transition: transform 160ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms ease;" style-hover="box-shadow: 0 26px 60px rgba(223,166,8,0.46), inset 0 1px 0 rgba(255,255,255,0.6); color: #04203F" style-active="transform: scale(0.97)">
+          <span>Entrar al recorrido virtual</span>
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 999px; background: rgba(4,32,63,0.14); font-size: 14px;">→</span>
+        </a>
+        <a href="#contacto" style="display: inline-flex; align-items: center; min-height: 56px; padding: clamp(15px, 1.7vw, 22px) clamp(20px, 2.4vw, 30px); border-radius: 999px; font-size: clamp(12px, 1.05vw, 14px); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFDF8; background: rgba(255,255,255,0.08); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.26); transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background 200ms ease;" style-hover="background: rgba(255,255,255,0.16); color: #FFFDF8" style-active="transform: scale(0.97)">Agenda tu visita</a>
+      </div>
+    </div>
+  </main>
+
+  <footer style="position: relative; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: clamp(24px, 4vh, 44px) clamp(18px, 4vw, 56px) clamp(24px, 4vh, 40px);">
+    <p style="margin: 0; font-size: clamp(11px, 1vw, 13px); font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,253,248,0.72);">{{ caption }}</p>
+    <div style="display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.08); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border: 1px solid rgba(255,255,255,0.18);">
+      <button type="button" onClick="{{ go0 }}" aria-label="Foto 1" style="width: 34px; height: 4px; border: 0; padding: 0; cursor: pointer; border-radius: 999px; background: rgba(255,255,255,0.28); overflow: hidden;"><span style="display: block; height: 100%; border-radius: 999px; background: #E9B421; transition: width 400ms cubic-bezier(0.23,1,0.32,1); width: {{ p0 }}%;"></span></button>
+      <button type="button" onClick="{{ go1 }}" aria-label="Foto 2" style="width: 34px; height: 4px; border: 0; padding: 0; cursor: pointer; border-radius: 999px; background: rgba(255,255,255,0.28); overflow: hidden;"><span style="display: block; height: 100%; border-radius: 999px; background: #E9B421; transition: width 400ms cubic-bezier(0.23,1,0.32,1); width: {{ p1 }}%;"></span></button>
+      <button type="button" onClick="{{ go2 }}" aria-label="Foto 3" style="width: 34px; height: 4px; border: 0; padding: 0; cursor: pointer; border-radius: 999px; background: rgba(255,255,255,0.28); overflow: hidden;"><span style="display: block; height: 100%; border-radius: 999px; background: #E9B421; transition: width 400ms cubic-bezier(0.23,1,0.32,1); width: {{ p2 }}%;"></span></button>
+      <button type="button" onClick="{{ go3 }}" aria-label="Foto 4" style="width: 34px; height: 4px; border: 0; padding: 0; cursor: pointer; border-radius: 999px; background: rgba(255,255,255,0.28); overflow: hidden;"><span style="display: block; height: 100%; border-radius: 999px; background: #E9B421; transition: width 400ms cubic-bezier(0.23,1,0.32,1); width: {{ p3 }}%;"></span></button>
+      <button type="button" onClick="{{ go4 }}" aria-label="Foto 5" style="width: 34px; height: 4px; border: 0; padding: 0; cursor: pointer; border-radius: 999px; background: rgba(255,255,255,0.28); overflow: hidden;"><span style="display: block; height: 100%; border-radius: 999px; background: #E9B421; transition: width 400ms cubic-bezier(0.23,1,0.32,1); width: {{ p4 }}%;"></span></button>
+    </div>
+  </footer>
+
+  <div style="position: fixed; inset: 0; z-index: 9; background: rgba(2,29,62,0.5); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); transition: opacity 240ms cubic-bezier(0.23,1,0.32,1); opacity: {{ scrimOpacity }}; pointer-events: {{ scrimEvents }};" onClick="{{ closeNav }}"></div>
+
+  <nav style="position: fixed; top: clamp(12px, 2vw, 22px); right: clamp(12px, 2vw, 22px); bottom: clamp(12px, 2vw, 22px); z-index: 10; width: min(430px, calc(100% - 24px)); display: flex; flex-direction: column; padding: clamp(22px, 2.6vw, 34px); border-radius: clamp(24px, 2.2vw, 32px); background: linear-gradient(155deg, rgba(255,255,255,0.18), rgba(255,255,255,0.07)); backdrop-filter: blur(34px) saturate(170%); -webkit-backdrop-filter: blur(34px) saturate(170%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 50px 110px rgba(2,20,45,0.55), inset 0 1px 0 rgba(255,255,255,0.4); transform-origin: top right; transition: transform 280ms cubic-bezier(0.23,1,0.32,1), opacity 240ms cubic-bezier(0.23,1,0.32,1); opacity: {{ navOpacity }}; transform: {{ navTransform }}; pointer-events: {{ scrimEvents }};">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: clamp(18px, 2.4vw, 30px);">
+      <img src="assets/logo-mone.png" alt="Moné Gardens" style="display: block; height: 30px; width: auto;" />
+      <button type="button" onClick="{{ closeNav }}" aria-label="Cerrar menú" style="display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; flex: none; border-radius: 999px; cursor: pointer; color: #FFFDF8; font-size: 20px; line-height: 1; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.24); transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background 200ms ease;" style-hover="background: rgba(255,255,255,0.2)" style-active="transform: scale(0.94)">✕</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px; overflow-y: auto;">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="9">
+        <a href="{{ item.href }}" onClick="{{ closeNav }}" style="display: flex; align-items: baseline; gap: 14px; padding: clamp(11px, 1.3vw, 15px) 12px; border-radius: 14px; font-size: clamp(17px, 1.8vw, 23px); font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; color: #FFFDF8; transition: background 200ms ease, transform 200ms cubic-bezier(0.23,1,0.32,1), color 200ms ease;" style-hover="background: rgba(255,255,255,0.12); transform: translateX(4px); color: #FFFDF8" style-active="transform: scale(0.99)">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.16em; color: #E9B421;">{{ item.num }}</span>
+          <span>{{ item.label }}</span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="margin-top: auto; padding-top: clamp(18px, 2vw, 26px); border-top: 1px solid rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a href="mailto:info@miacasaec.com" style="font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,253,248,0.86);">info@miacasaec.com</a>
+      <img src="assets/logo-miacasa.png" alt="MIACASA" style="display: block; height: 22px; width: auto; opacity: 0.95;" />
+    </div>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;slideDuration&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6500,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:2500,&quot;max&quot;:12000,&quot;step&quot;:500,&quot;unit&quot;:&quot;ms&quot;,&quot;section&quot;:&quot;Carrusel&quot;},&quot;overlayStrength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:0,&quot;max&quot;:1,&quot;step&quot;:0.1,&quot;section&quot;:&quot;Carrusel&quot;},&quot;showCaption&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Carrusel&quot;}}">
+class Component extends DCLogic {
+  state = { i: 0, nav: false };
+
+  componentDidMount() {
+    this.tick();
+    this.onKey = (e) => { if (e.key === 'Escape') this.setState({ nav: false }); };
+    window.addEventListener('keydown', this.onKey);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.t);
+    window.removeEventListener('keydown', this.onKey);
+  }
+
+  tick() {
+    clearTimeout(this.t);
+    const ms = Math.max(2000, Number(this.props.slideDuration ?? 6500));
+    this.t = setTimeout(() => {
+      this.setState((s) => ({ i: (s.i + 1) % 5 }));
+      this.tick();
+    }, ms);
+  }
+
+  go(n) {
+    this.setState({ i: n });
+    this.tick();
+  }
+
+  renderVals() {
+    const i = this.state.i;
+    const captions = [
+      'Acceso principal · Moné Gardens',
+      'Fachada · Casas de 2 plantas',
+      'Andadores interiores',
+      'Amenities · Piscina y gimnasio',
+      'Recorrido peatonal',
+    ];
+    const items = [
+      'Inicio', 'Áreas', 'Unidades disponibles', 'Casa modelo', 'Amenities',
+      'Avances de obra', 'Presentación', 'Ubicación', 'Contacto',
+    ];
+    const vals = {
+      caption: this.props.showCaption === false ? '' : captions[i],
+      overlayBoost: this.props.overlayStrength ?? 1,
+      navItems: items.map((label, n) => ({
+        label,
+        num: String(n + 1).padStart(2, '0'),
+        href:
+          label === 'Unidades disponibles'
+            ? 'Mone Gardens Unidades.dc.html'
+            : label === 'Casa modelo'
+            ? 'Mone Gardens Casa Modelo.dc.html'
+            : label === 'Áreas' || label === 'Amenities'
+            ? 'Mone Gardens Vista General.dc.html'
+            : '#' + label.toLowerCase().replace(/[^a-z]+/g, '-'),
+      })),
+      toggleNav: () => this.setState((s) => ({ nav: !s.nav })),
+      closeNav: () => this.setState({ nav: false }),
+      navOpacity: this.state.nav ? 1 : 0,
+      navTransform: this.state.nav ? 'scale(1) translateY(0)' : 'scale(0.96) translateY(-8px)',
+      scrimOpacity: this.state.nav ? 1 : 0,
+      scrimEvents: this.state.nav ? 'auto' : 'none',
+    };
+    for (let n = 0; n < 5; n++) {
+      vals['o' + n] = i === n ? 1 : 0;
+      vals['p' + n] = i === n ? 100 : 0;
+      vals['go' + n] = () => this.go(n);
+    }
+    return vals;
+  }
+}
+</script>
+</body>
+</html>

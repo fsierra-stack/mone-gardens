@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #021D3E; }
+  * { box-sizing: border-box; }
+  a { color: #F2EFE9; text-decoration: none; }
+  a:hover { color: #E9B421; }
+</style>
+</helmet>
+<div style="position: relative; display: flex; flex-direction: column; min-height: 100vh; width: 100%; background: #021D3E; font-family: Archivo, system-ui, sans-serif; color: #F5F2EC;">
+
+  <img src="assets/mone-aerea-plan.png" alt="" aria-hidden="true" style="position: fixed; inset: -8%; width: 116%; height: 116%; object-fit: cover; filter: blur(46px) saturate(110%) brightness(0.38);" />
+  <div aria-hidden="true" style="position: fixed; inset: 0; background: linear-gradient(180deg, rgba(2,29,62,0.78) 0%, rgba(2,29,62,0.62) 45%, rgba(2,29,62,0.86) 100%);"></div>
+
+  <header style="position: relative; z-index: 4; flex: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: clamp(14px, 2.2vw, 30px) clamp(16px, 4vw, 56px) clamp(10px, 1.4vw, 18px);">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(10px, 1.4vw, 18px);">
+      <div style="flex: none; display: flex; align-items: center; gap: clamp(16px, 2.6vw, 34px); padding: clamp(10px, 1.2vw, 16px) clamp(16px, 2.2vw, 28px); border-radius: 999px; background: linear-gradient(140deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05)); backdrop-filter: blur(26px) saturate(170%); -webkit-backdrop-filter: blur(26px) saturate(170%); border: 1px solid rgba(255,255,255,0.22); box-shadow: 0 18px 50px rgba(2,20,45,0.38), inset 0 1px 0 rgba(255,255,255,0.38);">
+        <img src="assets/logo-mone.png" alt="Moné Gardens" style="display: block; height: clamp(24px, 2.6vw, 36px); width: auto;" />
+        <span style="width: 1px; height: clamp(24px, 2.6vw, 34px); background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));"></span>
+        <img src="assets/logo-miacasa.png" alt="MIACASA" style="display: block; height: clamp(22px, 2.4vw, 32px); width: auto;" />
+      </div>
+      <div style="flex: none; display: flex; align-items: center; gap: 10px;">
+        <a href="Mone Gardens Vista General.dc.html" aria-label="Volver a la vista general" style="display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; flex: none; border-radius: 999px; font-size: 18px; color: #FFFDF8; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 10px 30px rgba(2,20,45,0.4); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: rgba(255,255,255,0.2); color: #FFFDF8" style-active="transform: scale(0.95)">←</a>
+        <div style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: rgba(255,255,255,0.08); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border: 1px solid rgba(255,255,255,0.18); font-size: clamp(12px, 0.9vw, 13px); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;">
+          <a href="Mone Gardens Vista General.dc.html" style="color: rgba(255,253,248,0.78);">Recorrido virtual</a>
+          <span style="color: rgba(233,180,33,0.9);">·</span>
+          <span style="color: #FFFDF8;">Unidades disponibles</span>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" onClick="{{ toggleNav }}" aria-label="Abrir menú" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; width: clamp(52px, 5vw, 62px); height: clamp(52px, 5vw, 62px); flex: none; border-radius: 999px; cursor: pointer; background: linear-gradient(140deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06)); backdrop-filter: blur(26px) saturate(170%); -webkit-backdrop-filter: blur(26px) saturate(170%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 18px 44px rgba(2,20,45,0.4), inset 0 1px 0 rgba(255,255,255,0.4); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: linear-gradient(140deg, rgba(255,255,255,0.26), rgba(255,255,255,0.1))" style-active="transform: scale(0.96)">
+      <span style="display: block; width: 22px; height: 2px; border-radius: 2px; background: #F5F2EC;"></span>
+      <span style="display: block; width: 22px; height: 2px; border-radius: 2px; background: #F5F2EC;"></span>
+      <span style="display: block; width: 14px; height: 2px; border-radius: 2px; background: rgba(245,242,236,0.7);"></span>
+    </button>
+  </header>
+
+  <main style="position: relative; z-index: 3; flex: 1 1 auto; display: flex; flex-direction: column; gap: clamp(16px, 2vh, 24px); padding: clamp(8px, 1.4vh, 16px) clamp(16px, 4vw, 56px) clamp(28px, 4vh, 48px); max-width: 1440px; width: 100%; margin: 0 auto;">
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
+      <div>
+        <h1 style="margin: 0; font-size: clamp(26px, 3.4vw, 46px); font-weight: 800; letter-spacing: -0.02em; line-height: 1; text-transform: uppercase; color: #FFFDF8;">Unidades disponibles</h1>
+        <p style="margin: 8px 0 0; font-size: clamp(12px, 0.95vw, 14px); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,253,248,0.72);">{{ summary }}</p>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; gap: 5px; padding: 5px; border-radius: 999px; background: rgba(2,29,62,0.5); backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%); border: 1px solid rgba(255,255,255,0.2); box-shadow: inset 0 1px 0 rgba(255,255,255,0.24);">
+          <sc-for list="{{ sections }}" as="s" hint-placeholder-count="2">
+            <button type="button" onClick="{{ s.pick }}" style="min-height: 44px; padding: 0 clamp(16px, 1.8vw, 24px); border-radius: 999px; cursor: pointer; font-family: Archivo, sans-serif; font-size: clamp(11px, 0.9vw, 13px); font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; transition: background 180ms ease, color 180ms ease, transform 140ms cubic-bezier(0.23,1,0.32,1); background: {{ s.bg }}; color: {{ s.fg }}; border: {{ s.border }};" style-active="transform: scale(0.98)">{{ s.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display: flex; gap: 5px; padding: 5px; border-radius: 999px; background: rgba(2,29,62,0.5); backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%); border: 1px solid rgba(255,255,255,0.2); box-shadow: inset 0 1px 0 rgba(255,255,255,0.24);">
+          <sc-for list="{{ filters }}" as="f" hint-placeholder-count="2">
+            <button type="button" onClick="{{ f.pick }}" style="min-height: 44px; padding: 0 clamp(14px, 1.6vw, 20px); border-radius: 999px; cursor: pointer; font-family: Archivo, sans-serif; font-size: clamp(11px, 0.85vw, 12px); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; transition: background 180ms ease, color 180ms ease, transform 140ms cubic-bezier(0.23,1,0.32,1); background: {{ f.bg }}; color: {{ f.fg }}; border: {{ f.border }};" style-active="transform: scale(0.98)">{{ f.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: clamp(10px, 1.2vw, 16px);">
+      <sc-for list="{{ units }}" as="u" hint-placeholder-count="16">
+        <button type="button" onClick="{{ u.open }}" aria-label="{{ u.aria }}" style="display: flex; flex-direction: column; align-items: stretch; gap: 12px; padding: clamp(14px, 1.4vw, 20px); border-radius: clamp(16px, 1.4vw, 22px); cursor: pointer; text-align: left; font-family: Archivo, sans-serif; backdrop-filter: blur(26px) saturate(160%); -webkit-backdrop-filter: blur(26px) saturate(160%); box-shadow: 0 22px 50px rgba(2,20,45,0.4), inset 0 1px 0 rgba(255,255,255,0.28); transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background 180ms ease; background: {{ u.bg }}; border: {{ u.border }}; opacity: {{ u.opacity }};" style-hover="transform: translateY(-3px)" style-active="transform: scale(0.98)">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+            <span style="font-size: clamp(18px, 1.8vw, 23px); font-weight: 800; letter-spacing: 0.06em; color: #FFFDF8;">{{ u.code }}</span>
+            <span style="padding: 4px 10px; border-radius: 999px; font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: {{ u.tagColor }}; background: {{ u.tagBg }}; border: 1px solid {{ u.tagBorder }};">{{ u.tag }}</span>
+          </div>
+          <span style="font-size: clamp(15px, 1.5vw, 19px); font-weight: 800; letter-spacing: 0.01em; color: {{ u.priceColor }};">{{ u.priceLabel }}</span>
+          <span style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: rgba(255,253,248,0.78);">
+            <span style="padding: 4px 9px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);">{{ u.total }} m² tot.</span>
+            <span style="padding: 4px 9px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);">patio {{ u.exterior }} m²</span>
+          </span>
+        </button>
+      </sc-for>
+    </div>
+
+    <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; line-height: 1.6; color: rgba(255,253,248,0.6);">Precios de referencia en dólares, sujetos a cambio sin previo aviso. Áreas de construcción según planos aprobados.</p>
+  </main>
+
+  <div style="position: fixed; inset: 0; z-index: 11; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 3vw, 40px); background: rgba(2,20,45,0.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: opacity 200ms cubic-bezier(0.23,1,0.32,1); opacity: {{ unitOpacity }}; pointer-events: {{ unitEvents }};" onClick="{{ closeUnit }}">
+    <div onClick="{{ stop }}" style="width: min(430px, 100%); max-height: 100%; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; padding: clamp(18px, 2vw, 24px); border-radius: clamp(20px, 2vw, 28px); background: linear-gradient(155deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08)); backdrop-filter: blur(34px) saturate(170%); -webkit-backdrop-filter: blur(34px) saturate(170%); border: 1px solid rgba(255,255,255,0.26); box-shadow: 0 50px 110px rgba(2,20,45,0.6), inset 0 1px 0 rgba(255,255,255,0.4); transition: transform 220ms cubic-bezier(0.23,1,0.32,1); transform: {{ unitTransform }};">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <p style="margin: 0; font-size: clamp(20px, 2vw, 26px); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #FFFDF8;">Casa {{ unit.code }}</p>
+        <p style="margin: 0 auto 0 0; padding: 5px 12px; border-radius: 999px; font-size: clamp(13px, 1.1vw, 15px); font-weight: 800; letter-spacing: 0.06em; color: {{ unit.statusColor }}; background: {{ unit.statusBg }}; border: 1px solid {{ unit.statusBorder }};">{{ unit.statusLabel }}</p>
+        <button type="button" onClick="{{ closeUnit }}" aria-label="Cerrar" style="flex: none; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; cursor: pointer; font-size: 17px; color: #FFFDF8; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.26); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: rgba(255,255,255,0.22)" style-active="transform: scale(0.94)">✕</button>
+      </div>
+
+      <div style="display: flex; gap: 6px; padding: 5px; border-radius: 999px; background: rgba(2,29,62,0.35); border: 1px solid rgba(255,255,255,0.16);">
+        <sc-for list="{{ unitTabs }}" as="t" hint-placeholder-count="3">
+          <button type="button" onClick="{{ t.pick }}" style="flex: 1 1 0; min-width: 0; min-height: 40px; padding: 0 6px; border-radius: 999px; cursor: pointer; font-family: Archivo, sans-serif; font-size: clamp(10px, 0.8vw, 12px); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; transition: background 180ms ease, color 180ms ease, transform 140ms cubic-bezier(0.23,1,0.32,1); background: {{ t.bg }}; color: {{ t.fg }}; border: {{ t.border }};" style-active="transform: scale(0.98)">{{ t.label }}</button>
+        </sc-for>
+      </div>
+
+      <div style="position: relative; width: 100%; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; background: rgba(2,29,62,0.45); border: 1px solid rgba(255,255,255,0.18);">
+        <img src="assets/casa-05-patio.jpg" alt="{{ unitView.alt }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 200ms ease; opacity: {{ unitView.imgOpacity }};" />
+        <div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; padding: 16px; opacity: {{ unitView.noteOpacity }};">
+          <p style="margin: 0; font-size: 13px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFDF8;">{{ unitView.title }}</p>
+          <p style="margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,253,248,0.72);">Plano 3D pendiente de carga</p>
+        </div>
+        <p style="position: absolute; left: 12px; bottom: 12px; margin: 0; padding: 5px 11px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #04203F; background: rgba(255,253,248,0.92); opacity: {{ unitView.imgOpacity }};">{{ unitView.title }}</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; flex: none; border-radius: 9px; border: 1.5px solid #E9B421; color: #E9B421; font-size: 13px; font-weight: 800;">m²</span>
+          <p style="margin: 0; font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; letter-spacing: -0.01em; color: #FFFDF8;">{{ unit.total }}</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="padding: 7px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #FFFDF8; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);">Área int. {{ unit.interior }} m²</span>
+          <span style="padding: 7px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #FFFDF8; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);">Área ext. {{ unit.exterior }} m²</span>
+          <span style="padding: 7px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #FFFDF8; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);">Parqueaderos: 2</span>
+        </div>
+      </div>
+
+      <div style="flex-direction: column; gap: 10px; display: {{ unit.actionsDisplay }}; pointer-events: {{ unit.actionsEvents }};">
+        <a href="https://hauzd.com" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 56px; padding: 0 22px; border-radius: 999px; background: linear-gradient(180deg, #F0C02A 0%, #DFA608 100%); color: #04203F; font-size: 14px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 18px 40px rgba(223,166,8,0.34), inset 0 1px 0 rgba(255,255,255,0.55); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), box-shadow 180ms ease;" style-hover="box-shadow: 0 22px 50px rgba(223,166,8,0.46); color: #04203F" style-active="transform: scale(0.97)">
+          <span>Ver recorrido 3D</span>
+          <span style="font-size: 15px;">↗</span>
+        </a>
+        <a href="https://wa.me/593999999999" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 22px; border-radius: 999px; color: #FFFDF8; font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; background: rgba(255,255,255,0.06); border: 1.5px dashed rgba(255,253,248,0.5); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: rgba(255,255,255,0.14); color: #FFFDF8" style-active="transform: scale(0.97)">Solicitar cotización</a>
+      </div>
+
+      <p style="margin: 0; padding: 16px; border-radius: 16px; text-align: center; font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: #FFD9D2; background: rgba(196,60,44,0.22); border: 1px solid rgba(255,150,135,0.4); display: {{ unit.soldDisplay }};">Unidad no disponible</p>
+    </div>
+  </div>
+
+  <div style="position: fixed; inset: 0; z-index: 9; background: rgba(2,29,62,0.5); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); transition: opacity 220ms cubic-bezier(0.23,1,0.32,1); opacity: {{ scrimOpacity }}; pointer-events: {{ scrimEvents }};" onClick="{{ closeNav }}"></div>
+
+  <nav style="position: fixed; top: clamp(12px, 2vw, 22px); right: clamp(12px, 2vw, 22px); bottom: clamp(12px, 2vw, 22px); z-index: 10; width: min(430px, calc(100% - 24px)); display: flex; flex-direction: column; padding: clamp(22px, 2.6vw, 34px); border-radius: clamp(24px, 2.2vw, 32px); background: linear-gradient(155deg, rgba(255,255,255,0.18), rgba(255,255,255,0.07)); backdrop-filter: blur(34px) saturate(170%); -webkit-backdrop-filter: blur(34px) saturate(170%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 50px 110px rgba(2,20,45,0.55), inset 0 1px 0 rgba(255,255,255,0.4); transform-origin: top right; transition: transform 260ms cubic-bezier(0.23,1,0.32,1), opacity 220ms cubic-bezier(0.23,1,0.32,1); opacity: {{ navOpacity }}; transform: {{ navTransform }}; pointer-events: {{ scrimEvents }};">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: clamp(18px, 2.4vw, 30px);">
+      <img src="assets/logo-mone.png" alt="Moné Gardens" style="display: block; height: 30px; width: auto;" />
+      <button type="button" onClick="{{ closeNav }}" aria-label="Cerrar menú" style="display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; flex: none; border-radius: 999px; cursor: pointer; color: #FFFDF8; font-size: 20px; line-height: 1; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.24); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: rgba(255,255,255,0.2)" style-active="transform: scale(0.95)">✕</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px; overflow-y: auto;">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="9">
+        <a href="{{ item.href }}" onClick="{{ closeNav }}" style="display: flex; align-items: baseline; gap: 14px; padding: clamp(11px, 1.3vw, 15px) 12px; border-radius: 14px; font-size: clamp(17px, 1.8vw, 23px); font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; color: #FFFDF8; transition: background 180ms ease, transform 180ms cubic-bezier(0.23,1,0.32,1), color 180ms ease;" style-hover="background: rgba(255,255,255,0.12); transform: translateX(4px); color: #FFFDF8" style-active="transform: scale(0.99)">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.16em; color: #E9B421;">{{ item.num }}</span>
+          <span>{{ item.label }}</span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="margin-top: auto; padding-top: clamp(18px, 2vw, 26px); border-top: 1px solid rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a href="mailto:info@miacasaec.com" style="font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,253,248,0.86);">info@miacasaec.com</a>
+      <img src="assets/logo-miacasa.png" alt="MIACASA" style="display: block; height: 22px; width: auto; opacity: 0.95;" />
+    </div>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:980}}">
+const PRICES = {
+  A: ['Vendido', 125990, 125990, 127400, 'Reservado', 125990, 125990, 127400, 130070, 125990, 125990, 127400, 130070, 125990, 125990, 'Vendido'],
+  B: ['Reservado', 125990, 125990, 127400, 130070, 125990, 125990, 127400, 130070, 125990, 125990, 127400, 130070, 125990, 'Vendido', 'Vendido'],
+};
+
+const AREAS = { 125990: 101.75, 127400: 103.4, 130070: 105.07 };
+const EXT = { 125990: 28.5, 127400: 42.6, 130070: 68.9 };
+
+function unitData(code) {
+  const row = code.charAt(0);
+  const idx = Number(code.slice(1)) - 1;
+  const raw = PRICES[row][idx];
+  const sold = raw === 'Vendido';
+  const reserved = raw === 'Reservado';
+  const price = typeof raw === 'number' ? raw : 125990;
+  const total = AREAS[price];
+  return {
+    code,
+    row,
+    idx,
+    sold,
+    reserved,
+    available: !sold && !reserved,
+    priceLabel: sold ? 'Vendido' : reserved ? 'Reservado' : price.toLocaleString('en-US') + ' US$',
+    statusLabel: sold ? 'Vendido' : reserved ? 'Reservado' : price.toLocaleString('en-US') + ' US$',
+    total: total.toFixed(2),
+    exterior: EXT[price].toFixed(2),
+    interior: (total - 4.05).toFixed(2),
+  };
+}
+
+class Component extends DCLogic {
+  state = { section: 'A', onlyAvailable: false, sel: null, tab: 'baja', nav: false };
+
+  componentDidMount() {
+    this.onKey = (e) => {
+      if (e.key !== 'Escape') return;
+      if (this.state.nav) this.setState({ nav: false });
+      else this.setState({ sel: null });
+    };
+    window.addEventListener('keydown', this.onKey);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.onKey);
+  }
+
+  renderVals() {
+    const { section, onlyAvailable, sel, tab } = this.state;
+    const all = PRICES[section].map((_, i) => unitData(section + String(i + 1).padStart(2, '0')));
+    const shown = onlyAvailable ? all.filter((u) => u.available) : all;
+    const availableCount = all.filter((u) => u.available).length;
+    const unit = unitData(sel || section + '02');
+    const views = {
+      baja: { title: 'Planta baja', hasImg: false },
+      alta: { title: 'Planta alta', hasImg: false },
+      exterior: { title: 'Exterior', hasImg: true },
+    };
+    const view = views[tab];
+
+    const items = [
+      'Inicio', 'Áreas', 'Unidades disponibles', 'Casa modelo', 'Amenities',
+      'Avances de obra', 'Presentación', 'Ubicación', 'Contacto',
+    ];
+
+    return {
+      summary: 'Sección ' + section + ' · ' + availableCount + ' de 16 disponibles',
+      sections: ['A', 'B'].map((s) => ({
+        label: 'Sección ' + s,
+        bg: section === s ? 'linear-gradient(180deg, #F0C02A 0%, #DFA608 100%)' : 'rgba(255,255,255,0.06)',
+        fg: section === s ? '#04203F' : '#FFFDF8',
+        border: section === s ? '1px solid rgba(255,255,255,0.35)' : '1px solid rgba(255,255,255,0.14)',
+        pick: () => this.setState({ section: s, sel: null }),
+      })),
+      filters: [
+        ['Mostrar todas', false],
+        ['Solo disponibles', true],
+      ].map(([label, val]) => ({
+        label,
+        bg: onlyAvailable === val ? 'rgba(255,253,248,0.92)' : 'rgba(255,255,255,0.06)',
+        fg: onlyAvailable === val ? '#04203F' : '#FFFDF8',
+        border: onlyAvailable === val ? '1px solid rgba(255,255,255,0.4)' : '1px solid rgba(255,255,255,0.14)',
+        pick: () => this.setState({ onlyAvailable: val }),
+      })),
+      units: shown.map((u) => ({
+        code: u.code,
+        aria: 'Ver detalle de la casa ' + u.code,
+        priceLabel: u.priceLabel,
+        priceColor: u.sold ? 'rgba(255,253,248,0.55)' : u.reserved ? '#FFD98A' : '#F0C02A',
+        tag: u.sold ? 'Vendido' : u.reserved ? 'Reservado' : 'Disponible',
+        tagColor: u.sold ? '#FFB3A6' : u.reserved ? '#FFD98A' : '#BFF3D0',
+        tagBg: u.sold ? 'rgba(196,60,44,0.24)' : u.reserved ? 'rgba(223,166,8,0.2)' : 'rgba(48,150,96,0.24)',
+        tagBorder: u.sold ? 'rgba(255,150,135,0.45)' : u.reserved ? 'rgba(240,192,42,0.5)' : 'rgba(140,230,175,0.4)',
+        total: u.total,
+        exterior: u.exterior,
+        bg: u.available ? 'linear-gradient(150deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05))' : 'linear-gradient(150deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))',
+        border: u.available ? '1px solid rgba(255,255,255,0.24)' : '1px solid rgba(255,255,255,0.12)',
+        opacity: u.available ? 1 : 0.66,
+        open: () => this.setState({ sel: u.code, tab: 'baja' }),
+      })),
+      unit: Object.assign({}, unit, {
+        statusColor: unit.sold ? '#FFB3A6' : unit.reserved ? '#FFD98A' : '#F0C02A',
+        statusBg: unit.sold ? 'rgba(196,60,44,0.24)' : unit.reserved ? 'rgba(223,166,8,0.2)' : 'rgba(240,192,42,0.14)',
+        statusBorder: unit.sold ? 'rgba(255,150,135,0.45)' : unit.reserved ? 'rgba(240,192,42,0.5)' : 'rgba(240,192,42,0.45)',
+        actionsDisplay: unit.sold ? 'none' : 'flex',
+        actionsEvents: unit.sold ? 'none' : 'auto',
+        soldDisplay: unit.sold ? 'block' : 'none',
+      }),
+      unitTabs: [
+        ['baja', 'Planta baja'],
+        ['alta', 'Planta alta'],
+        ['exterior', 'Exterior'],
+      ].map(([key, label]) => ({
+        label,
+        bg: tab === key ? 'linear-gradient(180deg, #F0C02A 0%, #DFA608 100%)' : 'rgba(255,255,255,0.06)',
+        fg: tab === key ? '#04203F' : '#FFFDF8',
+        border: tab === key ? '1px solid rgba(255,255,255,0.35)' : '1px solid rgba(255,255,255,0.14)',
+        pick: () => this.setState({ tab: key }),
+      })),
+      unitView: {
+        title: view.title,
+        alt: view.title + ' de la casa ' + unit.code,
+        imgOpacity: view.hasImg ? 1 : 0,
+        noteOpacity: view.hasImg ? 0 : 1,
+      },
+      unitOpacity: sel ? 1 : 0,
+      unitEvents: sel ? 'auto' : 'none',
+      unitTransform: sel ? 'scale(1)' : 'scale(0.96)',
+      closeUnit: () => this.setState({ sel: null }),
+      stop: (e) => e.stopPropagation(),
+      navItems: items.map((label, n) => ({
+        label,
+        num: String(n + 1).padStart(2, '0'),
+        href: label === 'Unidades disponibles' ? '#' : label === 'Casa modelo' ? 'Mone Gardens Casa Modelo.dc.html' : label === 'Inicio' ? 'Mone Gardens Landing.dc.html' : '#',
+      })),
+      toggleNav: () => this.setState((s) => ({ nav: !s.nav })),
+      closeNav: () => this.setState({ nav: false }),
+      navOpacity: this.state.nav ? 1 : 0,
+      navTransform: this.state.nav ? 'scale(1) translateY(0)' : 'scale(0.96) translateY(-8px)',
+      scrimOpacity: this.state.nav ? 1 : 0,
+      scrimEvents: this.state.nav ? 'auto' : 'none',
+    };
+  }
+}
+</script>
+</body>
+</html>

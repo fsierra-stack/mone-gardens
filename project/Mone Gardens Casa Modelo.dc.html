@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #021D3E; }
+  * { box-sizing: border-box; }
+  a { color: #F2EFE9; text-decoration: none; }
+  a:hover { color: #E9B421; }
+  ::-webkit-scrollbar { height: 0; width: 0; }
+</style>
+</helmet>
+<div style="position: relative; display: flex; flex-direction: column; width: 100%; min-height: 100vh; overflow: hidden; background: #021D3E; font-family: Archivo, system-ui, sans-serif; color: #F5F2EC;">
+
+  <div style="position: absolute; inset: 0; overflow: hidden;">
+    <sc-for list="{{ scenes }}" as="s" hint-placeholder-count="8">
+      <img src="{{ s.src }}" alt="{{ s.alt }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 420ms cubic-bezier(0.23,1,0.32,1), transform 620ms cubic-bezier(0.23,1,0.32,1); opacity: {{ s.opacity }}; transform: scale({{ s.scale }});" />
+    </sc-for>
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(2,29,62,0.78) 0%, rgba(2,29,62,0.16) 34%, rgba(2,29,62,0.14) 52%, rgba(2,29,62,0.82) 100%);"></div>
+  </div>
+
+  <header style="position: relative; z-index: 5; flex: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: clamp(14px, 2.2vw, 30px) clamp(16px, 4vw, 56px) clamp(10px, 1.4vw, 18px);">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: clamp(10px, 1.4vw, 18px);">
+      <div style="flex: none; display: flex; align-items: center; gap: clamp(16px, 2.6vw, 34px); padding: clamp(10px, 1.2vw, 16px) clamp(16px, 2.2vw, 28px); border-radius: 999px; background: linear-gradient(140deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05)); backdrop-filter: blur(26px) saturate(170%); -webkit-backdrop-filter: blur(26px) saturate(170%); border: 1px solid rgba(255,255,255,0.22); box-shadow: 0 18px 50px rgba(2,20,45,0.38), inset 0 1px 0 rgba(255,255,255,0.38);">
+        <img src="assets/logo-mone.png" alt="Moné Gardens" style="display: block; height: clamp(24px, 2.6vw, 36px); width: auto;" />
+        <span style="width: 1px; height: clamp(24px, 2.6vw, 34px); background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));"></span>
+        <img src="assets/logo-miacasa.png" alt="MIACASA" style="display: block; height: clamp(22px, 2.4vw, 32px); width: auto;" />
+      </div>
+      <div style="flex: none; display: flex; align-items: center; gap: 10px;">
+        <a href="Mone Gardens Vista General.dc.html" aria-label="Volver a la vista general" style="display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; flex: none; border-radius: 999px; font-size: 18px; color: #FFFDF8; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 10px 30px rgba(2,20,45,0.4); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: rgba(255,255,255,0.2); color: #FFFDF8" style-active="transform: scale(0.95)">←</a>
+        <div style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: rgba(255,255,255,0.08); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border: 1px solid rgba(255,255,255,0.18); font-size: clamp(12px, 0.9vw, 13px); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;">
+          <a href="Mone Gardens Vista General.dc.html" style="color: rgba(255,253,248,0.78);">Recorrido virtual</a>
+          <span style="color: rgba(233,180,33,0.9);">·</span>
+          <span style="color: #FFFDF8;">Casa modelo</span>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" onClick="{{ toggleNav }}" aria-label="Abrir menú" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; width: clamp(52px, 5vw, 62px); height: clamp(52px, 5vw, 62px); flex: none; border-radius: 999px; cursor: pointer; background: linear-gradient(140deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06)); backdrop-filter: blur(26px) saturate(170%); -webkit-backdrop-filter: blur(26px) saturate(170%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 18px 44px rgba(2,20,45,0.4), inset 0 1px 0 rgba(255,255,255,0.4); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: linear-gradient(140deg, rgba(255,255,255,0.26), rgba(255,255,255,0.1))" style-active="transform: scale(0.96)">
+      <span style="display: block; width: 22px; height: 2px; border-radius: 2px; background: #F5F2EC;"></span>
+      <span style="display: block; width: 22px; height: 2px; border-radius: 2px; background: #F5F2EC;"></span>
+      <span style="display: block; width: 14px; height: 2px; border-radius: 2px; background: rgba(245,242,236,0.7);"></span>
+    </button>
+  </header>
+
+  <div style="position: relative; z-index: 3; flex: 1 1 auto; min-height: clamp(280px, 40vh, 620px); display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: clamp(8px, 1.4vh, 18px) clamp(74px, 7.5vw, 104px);">
+
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 62%;">
+      <div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 10px; padding: 9px 16px; border-radius: 999px; background: rgba(2,29,62,0.55); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 12px 30px rgba(2,20,45,0.45);">
+        <span style="width: 7px; height: 7px; border-radius: 999px; background: #E9B421; flex: none;"></span>
+        <span style="font-size: clamp(13px, 1.15vw, 16px); font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFDF8;">{{ currentName }}</span>
+        <span style="font-size: clamp(11px, 0.85vw, 12px); font-weight: 700; letter-spacing: 0.1em; color: rgba(255,253,248,0.7);">{{ counter }}</span>
+      </div>
+      <p style="margin: 0; padding-left: 6px; max-width: 34ch; font-size: clamp(12px, 0.95vw, 14px); font-weight: 600; letter-spacing: 0.02em; line-height: 1.5; color: rgba(255,253,248,0.82); text-wrap: pretty;">{{ currentNote }}</p>
+    </div>
+
+    <div style="flex: none; display: flex; flex-direction: column; gap: 12px; width: min(300px, 40vw); padding: clamp(16px, 1.6vw, 22px); border-radius: clamp(18px, 1.6vw, 24px); background: linear-gradient(150deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06)); backdrop-filter: blur(30px) saturate(160%); -webkit-backdrop-filter: blur(30px) saturate(160%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 30px 70px rgba(2,20,45,0.5), inset 0 1px 0 rgba(255,255,255,0.36);">
+      <p style="margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,253,248,0.7);">Casa tipo · 104 m²</p>
+      <p style="margin: 0; font-size: clamp(26px, 2.6vw, 38px); font-weight: 800; letter-spacing: -0.02em; line-height: 1; color: #FFFDF8;">$126,990</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <sc-for list="{{ specs }}" as="sp" hint-placeholder-count="3">
+          <span style="padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FFFDF8; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);">{{ sp.label }}</span>
+        </sc-for>
+      </div>
+      <a href="https://wa.me/593999999999" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFDF8; font-size: 13px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: rgba(255,255,255,0.2); color: #FFFDF8" style-active="transform: scale(0.97)">
+        <span>Escríbenos por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <div style="position: absolute; top: 50%; left: clamp(10px, 2vw, 28px); z-index: 4; transform: translateY(-50%);">
+    <button type="button" onClick="{{ prev }}" aria-label="Ambiente anterior" style="display: flex; align-items: center; justify-content: center; width: clamp(52px, 4.4vw, 64px); height: clamp(52px, 4.4vw, 64px); border-radius: 999px; cursor: pointer; font-size: clamp(20px, 1.8vw, 24px); color: #FFFDF8; background: rgba(2,29,62,0.42); backdrop-filter: blur(22px) saturate(150%); -webkit-backdrop-filter: blur(22px) saturate(150%); border: 1px solid rgba(255,255,255,0.26); box-shadow: 0 18px 44px rgba(2,20,45,0.45); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: rgba(2,29,62,0.62)" style-active="transform: scale(0.94)">‹</button>
+  </div>
+
+  <div style="position: absolute; top: 50%; right: clamp(10px, 2vw, 28px); z-index: 4; transform: translateY(-50%);">
+    <button type="button" onClick="{{ next }}" aria-label="Siguiente ambiente" style="display: flex; align-items: center; justify-content: center; width: clamp(52px, 4.4vw, 64px); height: clamp(52px, 4.4vw, 64px); border-radius: 999px; cursor: pointer; font-size: clamp(20px, 1.8vw, 24px); color: #FFFDF8; background: rgba(2,29,62,0.42); backdrop-filter: blur(22px) saturate(150%); -webkit-backdrop-filter: blur(22px) saturate(150%); border: 1px solid rgba(255,255,255,0.26); box-shadow: 0 18px 44px rgba(2,20,45,0.45); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: rgba(2,29,62,0.62)" style-active="transform: scale(0.94)">›</button>
+  </div>
+
+  <div style="position: relative; z-index: 5; flex: none; display: flex; flex-direction: column; align-items: center; gap: clamp(12px, 1.6vh, 18px); padding: clamp(10px, 1.6vh, 18px) clamp(12px, 3vw, 40px) clamp(16px, 2.4vh, 28px);">
+
+    <div style="display: flex; align-items: center; gap: 10px; max-width: 100%; overflow-x: auto; padding: 10px; border-radius: clamp(18px, 2vw, 28px); background: rgba(2,29,62,0.5); backdrop-filter: blur(26px) saturate(160%); -webkit-backdrop-filter: blur(26px) saturate(160%); border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 22px 50px rgba(2,20,45,0.45), inset 0 1px 0 rgba(255,255,255,0.24);">
+      <sc-for list="{{ thumbs }}" as="t" hint-placeholder-count="8">
+        <button type="button" onClick="{{ t.pick }}" aria-label="{{ t.aria }}" style="position: relative; flex: none; display: block; padding: 0; overflow: hidden; cursor: pointer; width: clamp(84px, 8vw, 116px); height: clamp(58px, 5.4vw, 76px); border-radius: 14px; background: rgba(255,255,255,0.06); transition: transform 160ms cubic-bezier(0.23,1,0.32,1), border-color 180ms ease; border: {{ t.border }};" style-hover="transform: translateY(-2px)" style-active="transform: scale(0.97)">
+          <img src="{{ t.src }}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 180ms ease; opacity: {{ t.imgOpacity }};" />
+          <span style="position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 6px 8px; font-family: Archivo, sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; line-height: 1.1; color: #FFFDF8; background: linear-gradient(180deg, rgba(2,29,62,0) 40%, rgba(2,29,62,0.82) 100%);">{{ t.label }}</span>
+        </button>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(10px, 1.4vw, 18px);">
+      <a href="#plano" style="display: inline-flex; align-items: center; gap: 14px; min-height: 60px; padding: clamp(14px, 1.6vw, 20px) clamp(24px, 3vw, 40px); border-radius: 999px; background: linear-gradient(180deg, #F0C02A 0%, #DFA608 100%); color: #04203F; font-size: clamp(14px, 1.2vw, 17px); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.28); box-shadow: 0 24px 54px rgba(223,166,8,0.36), inset 0 1px 0 rgba(255,255,255,0.55); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), box-shadow 180ms ease;" style-hover="box-shadow: 0 28px 64px rgba(223,166,8,0.48), inset 0 1px 0 rgba(255,255,255,0.6); color: #04203F" style-active="transform: scale(0.97)">
+        <span>Ver plano</span>
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: rgba(4,32,63,0.14); font-size: 15px;">→</span>
+      </a>
+      <p style="margin: 0; font-size: clamp(11px, 0.9vw, 13px); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,253,248,0.68);">Punto actual: {{ currentName }}</p>
+    </div>
+  </div>
+
+  <div style="position: fixed; inset: 0; z-index: 9; background: rgba(2,29,62,0.5); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); transition: opacity 220ms cubic-bezier(0.23,1,0.32,1); opacity: {{ scrimOpacity }}; pointer-events: {{ scrimEvents }};" onClick="{{ closeNav }}"></div>
+
+  <nav style="position: fixed; top: clamp(12px, 2vw, 22px); right: clamp(12px, 2vw, 22px); bottom: clamp(12px, 2vw, 22px); z-index: 10; width: min(430px, calc(100% - 24px)); display: flex; flex-direction: column; padding: clamp(22px, 2.6vw, 34px); border-radius: clamp(24px, 2.2vw, 32px); background: linear-gradient(155deg, rgba(255,255,255,0.18), rgba(255,255,255,0.07)); backdrop-filter: blur(34px) saturate(170%); -webkit-backdrop-filter: blur(34px) saturate(170%); border: 1px solid rgba(255,255,255,0.24); box-shadow: 0 50px 110px rgba(2,20,45,0.55), inset 0 1px 0 rgba(255,255,255,0.4); transform-origin: top right; transition: transform 260ms cubic-bezier(0.23,1,0.32,1), opacity 220ms cubic-bezier(0.23,1,0.32,1); opacity: {{ navOpacity }}; transform: {{ navTransform }}; pointer-events: {{ scrimEvents }};">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: clamp(18px, 2.4vw, 30px);">
+      <img src="assets/logo-mone.png" alt="Moné Gardens" style="display: block; height: 30px; width: auto;" />
+      <button type="button" onClick="{{ closeNav }}" aria-label="Cerrar menú" style="display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; flex: none; border-radius: 999px; cursor: pointer; color: #FFFDF8; font-size: 20px; line-height: 1; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.24); transition: transform 140ms cubic-bezier(0.23,1,0.32,1), background 180ms ease;" style-hover="background: rgba(255,255,255,0.2)" style-active="transform: scale(0.95)">✕</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px; overflow-y: auto;">
+      <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="9">
+        <a href="{{ item.href }}" onClick="{{ closeNav }}" style="display: flex; align-items: baseline; gap: 14px; padding: clamp(11px, 1.3vw, 15px) 12px; border-radius: 14px; font-size: clamp(17px, 1.8vw, 23px); font-weight: 700; letter-spacing: 0.01em; text-transform: uppercase; color: #FFFDF8; transition: background 180ms ease, transform 180ms cubic-bezier(0.23,1,0.32,1), color 180ms ease;" style-hover="background: rgba(255,255,255,0.12); transform: translateX(4px); color: #FFFDF8" style-active="transform: scale(0.99)">
+          <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.16em; color: #E9B421;">{{ item.num }}</span>
+          <span>{{ item.label }}</span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="margin-top: auto; padding-top: clamp(18px, 2vw, 26px); border-top: 1px solid rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <a href="mailto:info@miacasaec.com" style="font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: rgba(255,253,248,0.86);">info@miacasaec.com</a>
+      <img src="assets/logo-miacasa.png" alt="MIACASA" style="display: block; height: 22px; width: auto; opacity: 0.95;" />
+    </div>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const SCENES = [
+  { id: 'fachada', label: 'Fachada', short: 'Fachada', src: 'assets/casa-01-fachada.jpg', note: 'Piedra natural, ventanales de piso a techo y acceso peatonal iluminado.' },
+  { id: 'entorno', label: 'Entorno', short: 'Entorno', src: 'assets/casa-02-entorno.jpg', note: 'Andadores arbolados entre las dos hileras de casas.' },
+  { id: 'sala', label: 'Sala', short: 'Sala', src: 'assets/casa-03-sala.jpg', note: 'Sala abierta al patio con doble corredera y luz natural todo el día.' },
+  { id: 'comedor', label: 'Comedor + Cocina', short: 'Comedor', src: 'assets/casa-04-comedor-cocina.jpg', note: 'Planta baja integrada: comedor, cocina con isla y escalera volada.' },
+  { id: 'patio', label: 'Patio', short: 'Patio', src: 'assets/casa-05-patio.jpg', note: 'Patio privado con área de parrilla y estar exterior.' },
+  { id: 'master', label: 'Dormitorio máster', short: 'Máster', src: 'assets/casa-06-master.jpg', note: 'Máster con muro de acento, closet y ventanal al frente.' },
+  { id: 'hab1', label: 'Habitación 1', short: 'Hab. 1', src: 'assets/casa-07-hab1.jpg', note: 'Habitación con zona de escritorio y clóset de piso a techo.' },
+  { id: 'hab2', label: 'Habitación 2', short: 'Hab. 2', src: 'assets/casa-08-hab2.jpg', note: 'Habitación con salida a balcón y vestidor abierto.' },
+];
+
+class Component extends DCLogic {
+  state = { i: 0, nav: false, dir: 1 };
+
+  componentDidMount() {
+    this.onKey = (e) => {
+      if (e.key === 'Escape') { this.setState({ nav: false }); return; }
+      if (this.state.nav) return;
+      if (e.key === 'ArrowRight') this.go(1);
+      if (e.key === 'ArrowLeft') this.go(-1);
+    };
+    window.addEventListener('keydown', this.onKey);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.onKey);
+  }
+
+  go(step) {
+    this.setState((s) => ({ i: (s.i + step + SCENES.length) % SCENES.length, dir: step }));
+  }
+
+  renderVals() {
+    const { i, dir } = this.state;
+    const items = [
+      'Inicio', 'Áreas', 'Unidades disponibles', 'Casa modelo', 'Amenities',
+      'Avances de obra', 'Presentación', 'Ubicación', 'Contacto',
+    ];
+
+    return {
+      scenes: SCENES.map((s, n) => ({
+        src: s.src,
+        alt: s.label + ' de la casa modelo Moné Gardens',
+        opacity: n === i ? 1 : 0,
+        // The incoming frame settles from a hair off-scale in the swipe
+        // direction, so movement reads as continuous rather than a hard cut.
+        scale: n === i ? 1 : 1.04,
+      })),
+      thumbs: SCENES.map((s, n) => ({
+        src: s.src,
+        label: s.short,
+        aria: 'Ir a ' + s.label,
+        border: n === i ? '2px solid #E9B421' : '2px solid rgba(255,255,255,0.14)',
+        imgOpacity: n === i ? 1 : 0.62,
+        pick: () => this.setState({ i: n, dir: n > i ? 1 : -1 }),
+      })),
+      specs: [{ label: '104 m²' }, { label: '3 dormitorios' }, { label: '2.5 baños' }],
+      currentName: SCENES[i].label,
+      currentNote: SCENES[i].note,
+      counter: String(i + 1).padStart(2, '0') + ' / ' + String(SCENES.length).padStart(2, '0'),
+      dir,
+      prev: () => this.go(-1),
+      next: () => this.go(1),
+      navItems: items.map((label, n) => ({
+        label,
+        num: String(n + 1).padStart(2, '0'),
+        href:
+          label === 'Casa modelo'
+            ? '#'
+            : label === 'Inicio'
+            ? 'Mone Gardens Landing.dc.html'
+            : label === 'Unidades disponibles'
+            ? 'Mone Gardens Unidades.dc.html'
+            : '#' + label.toLowerCase().replace(/[^a-z]+/g, '-'),
+      })),
+      toggleNav: () => this.setState((s) => ({ nav: !s.nav })),
+      closeNav: () => this.setState({ nav: false }),
+      navOpacity: this.state.nav ? 1 : 0,
+      navTransform: this.state.nav ? 'scale(1) translateY(0)' : 'scale(0.96) translateY(-8px)',
+      scrimOpacity: this.state.nav ? 1 : 0,
+      scrimEvents: this.state.nav ? 'auto' : 'none',
+    };
+  }
+}
+</script>
+</body>
+</html>
