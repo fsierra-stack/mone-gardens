@@ -1,0 +1,184 @@
+.header {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.4vw, 14px);
+  padding: clamp(14px, 2.2vw, 30px) clamp(16px, 4vw, 56px) clamp(10px, 1.4vw, 18px);
+}
+
+.header--home {
+  padding: clamp(18px, 3vw, 34px) clamp(18px, 4vw, 56px);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brandPill {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.6vw, 34px);
+  padding: clamp(10px, 1.2vw, 16px) clamp(16px, 2.2vw, 28px);
+  border-radius: 999px;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(26px) saturate(170%);
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    0 18px 50px rgba(2, 20, 45, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.38);
+}
+
+.header--home .brandPill {
+  padding: clamp(12px, 1.4vw, 18px) clamp(18px, 2.4vw, 30px);
+}
+
+.logoMone {
+  display: block;
+  height: clamp(24px, 2.6vw, 36px);
+  width: auto;
+}
+
+.header--home .logoMone {
+  height: clamp(26px, 3vw, 40px);
+}
+
+.logoMia {
+  display: block;
+  height: clamp(22px, 2.4vw, 32px);
+  width: auto;
+}
+
+.header--home .logoMia {
+  height: clamp(22px, 2.5vw, 34px);
+}
+
+.divider {
+  width: 1px;
+  height: clamp(24px, 2.6vw, 34px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+}
+
+.trail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex: none;
+  border-radius: 999px;
+  font-size: 18px;
+  color: var(--cream-bright);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 10px 30px rgba(2, 20, 45, 0.4);
+  transition:
+    transform 140ms var(--ease-out),
+    background 180ms ease;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.backBtn:active {
+  transform: scale(0.95);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: clamp(12px, 0.9vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Narrow phones: the back button already implies "back" — drop the root
+   crumb and keep only the current screen name so the pill never overflows. */
+@media (max-width: 480px) {
+  .breadcrumbRoot,
+  .breadcrumbSep {
+    display: none;
+  }
+}
+
+.breadcrumbRoot {
+  color: rgba(255, 253, 248, 0.78);
+}
+
+.breadcrumbSep {
+  color: rgba(233, 180, 33, 0.9);
+}
+
+.breadcrumbCurrent {
+  color: var(--cream-bright);
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: clamp(52px, 5vw, 62px);
+  height: clamp(52px, 5vw, 62px);
+  flex: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+  backdrop-filter: blur(26px) saturate(170%);
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow:
+    0 18px 44px rgba(2, 20, 45, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition:
+    transform 160ms var(--ease-out),
+    background 200ms ease;
+}
+
+.hamburger:hover {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.1));
+}
+
+.hamburger:active {
+  transform: scale(0.95);
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--cream);
+}
+
+.bar--short {
+  width: 14px;
+  background: rgba(245, 242, 236, 0.7);
+}

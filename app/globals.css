@@ -1,0 +1,262 @@
+:root {
+  --navy: #021d3e;
+  --navy-deep: #04203f;
+  --cream: #f5f2ec;
+  --cream-bright: #fffdf8;
+  --gold: #e9b421;
+  --gold-bright: #f0c02a;
+  --gold-deep: #dfa608;
+  --danger: #c43c2c;
+  --danger-text: #ffb3a6;
+  --amber-text: #ffd98a;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--navy);
+  color: var(--cream);
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--cream-bright);
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+@keyframes kenBurns {
+  from {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.14) translate3d(0, -1.2%, 0);
+  }
+}
+
+@keyframes halo {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-kb],
+  [data-halo] {
+    animation: none !important;
+  }
+}
+
+/* Shared button primitives, composed into page-specific CSS Modules so
+   sizing (padding/min-height/font-size) can vary per screen while the
+   look — gradient, blur, hover/active behavior — stays identical. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    transform 160ms var(--ease-out),
+    box-shadow 200ms ease,
+    background 200ms ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-gold {
+  background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-deep) 100%);
+  color: var(--navy-deep);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 22px 50px rgba(223, 166, 8, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.btn-gold:hover {
+  box-shadow:
+    0 26px 60px rgba(223, 166, 8, 0.46),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--cream-bright);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.btn-outline-gold {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--cream-bright);
+  border: 1.5px solid rgba(240, 192, 42, 0.8);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+}
+
+.btn-outline-gold:hover {
+  background: rgba(240, 192, 42, 0.18);
+}
+
+.btn-dashed {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--cream-bright);
+  border: 1.5px dashed rgba(255, 253, 248, 0.5);
+}
+
+.btn-dashed:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(4, 32, 63, 0.14);
+  flex: none;
+}
+
+.page-body {
+  margin: 0;
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.6;
+  color: rgba(255, 253, 248, 0.86);
+  max-width: 60ch;
+}
+
+.coming-soon-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(240, 192, 42, 0.16);
+  border: 1px solid rgba(240, 192, 42, 0.4);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 600;
+  color: var(--cream-bright);
+}
+
+.contact-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 253, 248, 0.6);
+  min-width: 92px;
+}
+
+.map-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.map-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.ref-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ref-chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--cream-bright);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass-panel {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 40px 90px rgba(2, 20, 45, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+}

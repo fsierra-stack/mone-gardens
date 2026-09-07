@@ -1,0 +1,75 @@
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--navy);
+}
+
+.bg {
+  position: fixed;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  filter: blur(46px) saturate(110%) brightness(0.38);
+}
+
+.bgOverlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 29, 62, 0.78) 0%,
+    rgba(2, 29, 62, 0.62) 45%,
+    rgba(2, 29, 62, 0.86) 100%
+  );
+}
+
+.main {
+  position: relative;
+  z-index: 3;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(24px, 4vh, 56px) clamp(16px, 4vw, 56px) clamp(40px, 6vh, 80px);
+}
+
+.card {
+  width: 100%;
+  max-width: 720px;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: clamp(24px, 2.4vw, 34px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(30px, 4.4vw, 54px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--cream-bright);
+}
+
+.body {
+  margin: 0;
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.6;
+  color: rgba(255, 253, 248, 0.86);
+  max-width: 60ch;
+}

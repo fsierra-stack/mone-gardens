@@ -1,0 +1,318 @@
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  transition:
+    opacity 420ms var(--ease-out),
+    transform 620ms var(--ease-out);
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 29, 62, 0.78) 0%,
+    rgba(2, 29, 62, 0.16) 34%,
+    rgba(2, 29, 62, 0.14) 52%,
+    rgba(2, 29, 62, 0.82) 100%
+  );
+}
+
+.hero {
+  position: relative;
+  z-index: 3;
+  flex: 1 1 auto;
+  min-height: clamp(280px, 40vh, 620px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: clamp(8px, 1.4vh, 18px) clamp(74px, 7.5vw, 104px);
+}
+
+.sceneInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 62%;
+}
+
+/* Below this width the side-by-side info/spec layout can't fit next to the
+   reserved arrow gutters — stack them instead of letting the spec card
+   overflow past the viewport edge. */
+@media (max-width: 640px) {
+  .hero {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .sceneInfo,
+  .specCard {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.sceneBadge {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(2, 29, 62, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 12px 30px rgba(2, 20, 45, 0.45);
+}
+
+.sceneDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--gold);
+  flex: none;
+}
+
+.sceneName {
+  font-size: clamp(13px, 1.15vw, 16px);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cream-bright);
+}
+
+.sceneCounter {
+  font-size: clamp(11px, 0.85vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 253, 248, 0.7);
+}
+
+.sceneNote {
+  margin: 0;
+  padding-left: 6px;
+  max-width: 34ch;
+  font-size: clamp(12px, 0.95vw, 14px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  color: rgba(255, 253, 248, 0.82);
+}
+
+.specCard {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(300px, 40vw);
+  padding: clamp(16px, 1.6vw, 22px);
+  border-radius: clamp(18px, 1.6vw, 24px);
+}
+
+.specLabel {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 253, 248, 0.7);
+}
+
+.specPrice {
+  margin: 0;
+  font-size: clamp(26px, 2.6vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--cream-bright);
+}
+
+.specChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.specChip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream-bright);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.whatsapp {
+  min-height: 52px;
+  padding: 0 20px;
+  font-size: 13px;
+}
+
+.navArrowWrap {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  transform: translateY(-50%);
+}
+
+.navArrowWrap--left {
+  left: clamp(10px, 2vw, 28px);
+}
+
+.navArrowWrap--right {
+  right: clamp(10px, 2vw, 28px);
+}
+
+.navArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(52px, 4.4vw, 64px);
+  height: clamp(52px, 4.4vw, 64px);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: clamp(20px, 1.8vw, 24px);
+  color: var(--cream-bright);
+  background: rgba(2, 29, 62, 0.42);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  box-shadow: 0 18px 44px rgba(2, 20, 45, 0.45);
+  transition:
+    transform 140ms var(--ease-out),
+    background 180ms ease;
+}
+
+.navArrow:hover {
+  background: rgba(2, 29, 62, 0.62);
+}
+
+.navArrow:active {
+  transform: scale(0.94);
+}
+
+.bottom {
+  position: relative;
+  z-index: 5;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(12px, 1.6vh, 18px);
+  padding: clamp(10px, 1.6vh, 18px) clamp(12px, 3vw, 40px) clamp(16px, 2.4vh, 28px);
+}
+
+.thumbRail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 10px;
+  border-radius: clamp(18px, 2vw, 28px);
+  background: rgba(2, 29, 62, 0.5);
+  backdrop-filter: blur(26px) saturate(160%);
+  -webkit-backdrop-filter: blur(26px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 22px 50px rgba(2, 20, 45, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.thumb {
+  position: relative;
+  flex: none;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  width: clamp(84px, 8vw, 116px);
+  height: clamp(58px, 5.4vw, 76px);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  transition:
+    transform 160ms var(--ease-out),
+    border-color 180ms ease;
+}
+
+.thumb:hover {
+  transform: translateY(-2px);
+}
+
+.thumb:active {
+  transform: scale(0.97);
+}
+
+.thumbImg {
+  object-fit: cover;
+  transition: opacity 180ms ease;
+}
+
+.thumbLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 6px 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  line-height: 1.1;
+  color: var(--cream-bright);
+  background: linear-gradient(180deg, rgba(2, 29, 62, 0) 40%, rgba(2, 29, 62, 0.82) 100%);
+}
+
+.actionsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.4vw, 18px);
+}
+
+.planCta {
+  gap: 14px;
+  min-height: 60px;
+  padding: clamp(14px, 1.6vw, 20px) clamp(24px, 3vw, 40px);
+  font-size: clamp(14px, 1.2vw, 17px);
+}
+
+.planCtaIcon {
+  width: 28px;
+  height: 28px;
+  font-size: 15px;
+}
+
+.currentText {
+  margin: 0;
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 253, 248, 0.68);
+}
