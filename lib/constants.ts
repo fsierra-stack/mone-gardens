@@ -4,3 +4,6 @@ export const CONTACT_EMAIL = "info@miacasaec.com";
 export const INSTAGRAM_HANDLE = "@miacasa.ec";
 export const INSTAGRAM_URL = "https://instagram.com/miacasa.ec";
 export const WEBSITE_URL = "https://miacasa.com.ec";
+export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/nZjUnV5NJ4kmxCjAA";
+export const PROJECT_LAT = -0.222139;
+export const PROJECT_LNG = -78.379943;

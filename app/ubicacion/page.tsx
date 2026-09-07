@@ -1,10 +1,10 @@
 import SimplePageShell from "@/components/SimplePageShell";
+import { GOOGLE_MAPS_URL, PROJECT_LAT, PROJECT_LNG } from "@/lib/constants";
 
 export const metadata = {
   title: "Ubicación · Moné Gardens",
 };
 
-const MAP_QUERY = encodeURIComponent("Av. Oswaldo Guayasamín, Tumbaco, Quito, Ecuador");
 const REFERENCES = [
   "MegaKywi",
   "Supermaxi",
@@ -23,12 +23,22 @@ export default function UbicacionPage() {
 
       <div className="map-frame">
         <iframe
-          src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
+          src={`https://www.google.com/maps?q=${PROJECT_LAT},${PROJECT_LNG}&z=16&output=embed`}
           title="Mapa de ubicación de Moné Gardens"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />
       </div>
+
+      <a
+        href={GOOGLE_MAPS_URL}
+        target="_blank"
+        rel="noopener"
+        className="btn btn-outline-gold"
+        style={{ minHeight: 48, padding: "0 24px", fontSize: 13, alignSelf: "flex-start" }}
+      >
+        Abrir en Google Maps
+      </a>
 
       <ul className="ref-list">
         {REFERENCES.map((ref) => (
